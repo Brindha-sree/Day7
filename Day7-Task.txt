@@ -1,0 +1,77 @@
+1. enGet all the countries from the Asia continent /region using the Filter function
+
+let request=new XMLHttpRequest();
+request.open('GET',https://restcountries.eu/rest/v2/all','true');
+request.send();
+request.onload=function(){
+  var countryData=JSON.parse(this.response);
+  let asia=countryData.filter((e)=>{
+    if(e.region==='Asia'){
+      return e.name;
+    }
+  })
+  console.log(asia);
+
+2. Get all the countries with a population of less than 2 lakhs using Filter function
+
+
+
+
+let request=new XMLHttpRequest();
+request.open('GET',https://restcountries.eu/rest/v2/all','true');
+request.send();
+request.onload=function(){
+  var countryData=JSON.parse(this.response);
+  let people=countryData.filter((e)=>{
+    return e.population<200000;
+  })
+  console.log(people);
+}
+
+
+
+3. Print the following details name, capital, flag using forEach function
+
+let request=new XMLHttpRequest();
+request.open('GET',https://restcountries.eu/rest/v2/all','true');
+request.send();
+request.onload=function(){
+  var countryData=JSON.parse(this.response);
+  countryData.foreach((e)=>{
+    console.log(e.name,e.capital,e.flag);
+  })
+}
+
+
+4. Print the total population of countries using reduce function
+
+
+let request=new XMLHttpRequest();
+request.open('GET',https://restcountries.eu/rest/v2/all','true');
+request.send();
+request.onload=function(){
+  var countryData=JSON.parse(this.response);
+  let people=countryData.reduce((acc,e)=>{
+    return acc+e.population
+  })
+  console.log(people);
+}
+
+
+5. Print the country which uses US Dollars as currency.
+
+let request=new XMLHttpRequest();
+request.open('GET',https://restcountries.eu/rest/v2/all','true');
+request.send();
+request.onload=function(){
+  var Data=JSON.parse(this.response);
+  var curr[];
+  for(var i=0;i<data.length;i++){
+  if(data[i].currency[0].code==="usd")
+  {
+  console.log("name:",data[i].name,"==>,data[i].currency[0].code);
+}
+}
+}
+
+
